@@ -13,9 +13,99 @@
   "consumes": [],
   "produces": [],
   "paths": {
-    "/v1.0/users/userPrincipalName/photo/support@jstart.org": {},
-    "/v1.0/users/userPrincipalName/photo/$value": {},
-    "/v1.0/users/userPrincipalName/photo/{userPrincipalName}": {},
+    "/v1.0/{object}": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Custom MS Graph Request",
+        "operationId": "MSGraphRequest",
+        "parameters": [
+          {
+            "name": "object",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "apiEndpoint": {
+                  "type": "string",
+                  "required": true,
+                  "title": "API Endpoint"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/v1.0/groups?$filter={filter}&$count=true": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Get Team",
+        "operationId": "GetTeam",
+        "parameters": [
+         {
+            "name": "filter",
+            "in": "path",
+            "type": "string"
+         },
+          {
+            "name": "ConsistencyLevel",
+            "defaultvalue": "eventual",
+            "in": "header",
+            "x-visibility-type": "internal",
+            "type": "string"
+          },
+          {
+            "name": "userPrincipalName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }    
+    },
+    "/v1.0/teams/{teamId}/members": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Get Team Members",
+        "operationId": "GetTeamMembers",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
     "/v1.0/users/{userPrincipalName}/photo/$value": {
       "put": {
         "responses": {
