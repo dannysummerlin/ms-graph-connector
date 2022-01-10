@@ -1,4 +1,4 @@
-public class Script : ScriptBase {
+﻿public class Script : ScriptBase {
 	public override async Task<HttpResponseMessage> ExecuteAsync() {
 		var overrideCheck = this.Context.Request.Headers.TryGetValues("x-api-endpoint", out var varApiEndpoint);
 		string apiEndpoint = String.Concat(varApiEndpoint);

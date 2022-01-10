@@ -45,6 +45,7 @@
     },
     "iconBrandColor": "#007ee5",
     "capabilities": [],
+    "policyTemplateInstances": [],
     "publisher": "O365 Admin"
   }
 }

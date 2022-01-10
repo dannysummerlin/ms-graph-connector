@@ -121,6 +121,43 @@
         ]
       }
     },
+    "/v1.0/groups": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Get Groups",
+        "operationId": "GetGroups",
+        "parameters": [
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "default": "true",
+            "x-ms-visibility": "internal"
+          },
+          {
+            "name": "ConsistencyLevel",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "eventual",
+            "x-ms-visibility": "internal"
+          }
+        ],
+        "description": "Get groups using an oData $filter"
+      }
+    },
     "/v1.0/teams/{teamId}/members": {
       "get": {
         "responses": {
