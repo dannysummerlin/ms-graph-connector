@@ -141,15 +141,15 @@
           {
             "name": "$count",
             "in": "query",
-            "required": false,
+            "required": true,
             "type": "boolean",
-            "default": "true",
+            "default": true,
             "x-ms-visibility": "internal"
           },
           {
             "name": "ConsistencyLevel",
             "in": "header",
-            "required": false,
+            "required": true,
             "type": "string",
             "default": "eventual",
             "x-ms-visibility": "internal"
