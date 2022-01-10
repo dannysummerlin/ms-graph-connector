@@ -10,5 +10,8 @@ for Power Automate
 * Custom GET Request
 * Custom POST Request
 
+## Permissions Required
+Scopes: Team.ReadBasic.All TeamMember.ReadWrite.All Group.ReadWrite.All User.ReadWrite.All
+
 reference for MS Graph setup:
 https://docs.microsoft.com/en-us/graph/tutorials/power-automate

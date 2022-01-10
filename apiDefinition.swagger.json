@@ -126,7 +126,69 @@
         "responses": {
           "default": {
             "description": "default",
-            "schema": {}
+            "schema": {
+              "type": "object",
+              "properties": {
+                "@odata.count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "@odata.count",
+                  "title": "Group Count"
+                },
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id",
+                        "title": "Object ID",
+                        "x-ms-visibility": "important"
+                      },
+                      "createdDateTime": {
+                        "type": "string",
+                        "description": "createdDateTime",
+                        "title": "Date Created",
+                        "format": "date-time"
+                      },
+                      "displayName": {
+                        "type": "string",
+                        "description": "displayName",
+                        "title": "Display Name"
+                      },
+                      "mail": {
+                        "type": "string",
+                        "description": "mail",
+                        "title": "Email Address",
+                        "x-ms-visibility": "important"
+                      },
+                      "mailEnabled": {
+                        "type": "boolean",
+                        "description": "mailEnabled",
+                        "title": "Mail Enabled",
+                        "enum": [
+                          "",
+                          "true",
+                          "false"
+                        ]
+                      },
+                      "mailNickname": {
+                        "type": "string",
+                        "description": "mailNickname",
+                        "title": "Mail Nickname"
+                      },
+                      "onPremisesSamAccountName": {
+                        "type": "string",
+                        "description": "onPremisesSamAccountName",
+                        "title": "SAM Account Name"
+                      }
+                    }
+                  },
+                  "description": "value"
+                }
+              }
+            }
           }
         },
         "summary": "Get Groups",
@@ -163,7 +225,48 @@
         "responses": {
           "default": {
             "description": "default",
-            "schema": {}
+            "schema": {
+              "type": "object",
+              "properties": {
+                "@odata.count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "@odata.count",
+                  "title": "Team Member Count"
+                },
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id",
+                        "title": "Request Item ID",
+                        "x-ms-visibility": "internal"
+                      },
+                      "displayName": {
+                        "type": "string",
+                        "description": "displayName",
+                        "title": "Member Name"
+                      },
+                      "userId": {
+                        "type": "string",
+                        "description": "userId",
+                        "title": "Member User ID",
+                        "x-ms-visibility": "important"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "email",
+                        "title": "Member Email"
+                      }
+                    }
+                  },
+                  "description": "value"
+                }
+              }
+            }
           }
         },
         "summary": "Get Team Members",
