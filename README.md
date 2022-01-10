@@ -9,3 +9,6 @@ for Power Automate
 * Update User Photo - update any users Office 365 profile picture
 * Custom GET Request
 * Custom POST Request
+
+reference for MS Graph setup:
+https://docs.microsoft.com/en-us/graph/tutorials/power-automate

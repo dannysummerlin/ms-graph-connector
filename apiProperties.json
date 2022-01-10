@@ -5,7 +5,7 @@
         "type": "oauthSetting",
         "oAuthSettings": {
           "identityProvider": "aad",
-          "clientId": "0a52331a-6376-45e0-8659-e0bd7a5b4d65",
+          "clientId": "REPLACE WITH APP REGISTRATION DETAILS",
           "scopes": [],
           "redirectMode": "Global",
           "redirectUrl": "https://global.consent.azure-apim.net/redirect",
