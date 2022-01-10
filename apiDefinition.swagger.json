@@ -13,7 +13,7 @@
   "consumes": [],
   "produces": [],
   "paths": {
-    "/v1.0/{object}": {
+    "/v1.0/{objectType}": {
       "get": {
         "responses": {
           "default": {
@@ -21,19 +21,39 @@
             "schema": {}
           }
         },
-        "summary": "Custom MS Graph Request",
-        "operationId": "MSGraphRequest",
+        "summary": "Custom GET Request",
+        "operationId": "MSGraphGetRequest",
         "parameters": [
           {
-            "name": "object",
+            "name": "objectType",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "users",
+              "groups",
+              "teams"
+            ]
           },
           {
             "name": "Content-Type",
             "in": "header",
             "required": false,
+            "type": "string",
+            "default": "application/json"
+          },
+          {
+            "name": "x-api-endpoint",
+            "description": "API Endpoint",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ConsistencyLevel",
+            "default": "eventual",
+            "required": false,
+            "in": "header",
             "type": "string"
           },
           {
@@ -42,49 +62,64 @@
             "required": false,
             "schema": {
               "type": "object",
-              "properties": {
-                "apiEndpoint": {
-                  "type": "string",
-                  "required": true,
-                  "title": "API Endpoint"
-                }
-              }
+              "properties": {}
             }
           }
         ]
-      }
-    },
-    "/v1.0/groups?$filter={filter}&$count=true": {
-      "get": {
+      },
+      "post": {
         "responses": {
           "default": {
             "description": "default",
             "schema": {}
           }
         },
-        "summary": "Get Team",
-        "operationId": "GetTeam",
+        "summary": "Custom POST Request",
+        "operationId": "MSGraphPostRequest",
         "parameters": [
-         {
-            "name": "filter",
-            "in": "path",
-            "type": "string"
-         },
           {
-            "name": "ConsistencyLevel",
-            "defaultvalue": "eventual",
+            "name": "objectType",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "users",
+              "groups",
+              "teams"
+            ]
+          },
+          {
+            "name": "Content-Type",
             "in": "header",
-            "x-visibility-type": "internal",
+            "required": false,
+            "type": "string",
+            "default": "application/json"
+          },
+          {
+            "name": "x-api-endpoint",
+            "description": "API Endpoint",
+            "in": "header",
+            "required": false,
             "type": "string"
           },
           {
-            "name": "userPrincipalName",
-            "in": "path",
-            "required": true,
+            "name": "ConsistencyLevel",
+            "default": "eventual",
+            "required": false,
+            "in": "header",
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         ]
-      }    
+      }
     },
     "/v1.0/teams/{teamId}/members": {
       "get": {
@@ -143,7 +178,16 @@
       }
     }
   },
-  "definitions": {},
+  "definitions": {
+    "objectTypes": {
+      "type": "string",
+      "enum": [
+        "users",
+        "groups",
+        "teams"
+      ]
+    }
+  },
   "parameters": {},
   "responses": {},
   "securityDefinitions": {
